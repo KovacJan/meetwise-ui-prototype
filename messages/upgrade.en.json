@@ -1,0 +1,27 @@
+{
+  "title": "Choose your plan",
+  "subtitle": "Unlock the full power of MeetWise",
+  "backToDashboard": "Back to dashboard",
+  "testModeBadge": "Test mode",
+  "stripeTestTitle": "Stripe test mode active.",
+  "stripeTestBodyPrefix": "Use card",
+  "stripeTestBodySuffix": "with any future expiry and any CVC to complete a test purchase.",
+  "alreadyPro": "You’re on Pro. You have full access; no need to pay again.",
+  "freeName": "Free",
+  "proName": "Pro",
+  "freeFeature1": "Unlimited meeting import",
+  "freeFeature2": "Basic cost calculation",
+  "freeFeature3": "AI insights available on Pro only",
+  "proFeature1": "Unlimited AI insights",
+  "proFeature2": "AI forecast summary",
+  "proFeature3": "Full cost history",
+  "proFeature4": "Priority email support",
+  "ctaCurrent": "Current plan",
+  "ctaUpgrade": "Upgrade to Pro",
+  "ctaFree": "Free plan",
+  "popularBadge": "Popular",
+  "activeBadge": "Active",
+  "perMonth": "/month",
+  "testModeDisclaimer": "No real charges will be made in test mode."
+}
+
