@@ -1,0 +1,27 @@
+{
+  "title": "Wählen Sie Ihren Plan",
+  "subtitle": "Schalten Sie das volle Potenzial von MeetWise frei",
+  "backToDashboard": "Zurück zum Dashboard",
+  "testModeBadge": "Testmodus",
+  "stripeTestTitle": "Stripe-Testmodus aktiv.",
+  "stripeTestBodyPrefix": "Verwenden Sie die Karte",
+  "stripeTestBodySuffix": "mit einem beliebigen zukünftigen Ablaufdatum und einem beliebigen CVC, um einen Testkauf abzuschließen.",
+  "alreadyPro": "Sie nutzen bereits Pro. Sie haben vollen Zugriff und müssen nicht erneut bezahlen.",
+  "freeName": "Free",
+  "proName": "Pro",
+  "freeFeature1": "Unbegrenzter Meeting-Import",
+  "freeFeature2": "Einfache Kostenberechnung",
+  "freeFeature3": "KI-Einblicke nur im Pro-Plan verfügbar",
+  "proFeature1": "Unbegrenzte KI-Einblicke",
+  "proFeature2": "KI-Kostenprognose",
+  "proFeature3": "Vollständige Kostenversion",
+  "proFeature4": "Bevorzugter E-Mail-Support",
+  "ctaCurrent": "Aktueller Plan",
+  "ctaUpgrade": "Auf Pro upgraden",
+  "ctaFree": "Gratisplan",
+  "popularBadge": "Beliebt",
+  "activeBadge": "Aktiv",
+  "perMonth": "/Monat",
+  "testModeDisclaimer": "Im Testmodus werden keine echten Zahlungen ausgelöst."
+}
+
