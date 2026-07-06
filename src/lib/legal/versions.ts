@@ -1,0 +1,5 @@
+export const MEETWISE_TERMS_VERSION = "2026-07";
+export const MEETWISE_PRIVACY_VERSION = "2026-07";
+
+export const MEETWISE_TERMS_UPDATED_AT = "July 2, 2026";
+export const MEETWISE_PRIVACY_UPDATED_AT = "July 2, 2026";

@@ -1,0 +1,219 @@
+{
+  "summary": {
+    "meetingsTotal": 2348,
+    "occurrencesTotal": 1076,
+    "teams": 3
+  },
+  "checks": [
+    {
+      "id": "code-consumer",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/[locale]/(dashboard)/dashboard/actions.ts uses canonical model"
+    },
+    {
+      "id": "code-consumer",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/lib/cost-engine.ts uses canonical model"
+    },
+    {
+      "id": "code-consumer",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/api/insights/route.ts uses canonical model"
+    },
+    {
+      "id": "code-consumer",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/api/generate-insight/route.ts uses canonical model"
+    },
+    {
+      "id": "code-consumer",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/api/cron/check-insights/route.ts uses canonical model"
+    },
+    {
+      "id": "code-consumer",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/api/poll/submit/route.ts uses canonical model"
+    },
+    {
+      "id": "code-consumer",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/api/poll/submit-batch/route.ts uses canonical model"
+    },
+    {
+      "id": "code-consumer",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/lib/meeting-occurrences.ts uses canonical model"
+    },
+    {
+      "id": "code-legacy-src/app/api/cron/check-polls/route.ts",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/api/cron/check-polls/route.ts: Poll digest cron uses meeting_occurrences"
+    },
+    {
+      "id": "code-legacy-src/app/api/cron/check-polls-for-user/route.ts",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/api/cron/check-polls-for-user/route.ts: Manual poll trigger uses meeting_occurrences"
+    },
+    {
+      "id": "code-legacy-src/app/api/dashboard-kpis/route.ts",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/api/dashboard-kpis/route.ts: Member KPI minutes sum raw meetings (by design for personal calendar)"
+    },
+    {
+      "id": "code-legacy-src/app/api/send-poll/route.ts",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/api/send-poll/route.ts: Send-poll resolves occurrence id for links"
+    },
+    {
+      "id": "code-legacy-src/app/[locale]/(dashboard)/surveys/actions.ts",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/[locale]/(dashboard)/surveys/actions.ts: Surveys list canonical occurrences user attended"
+    },
+    {
+      "id": "code-legacy-src/app/api/meetings/poll-metadata/route.ts",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/app/api/meetings/poll-metadata/route.ts: Poll metadata resolves occurrence or legacy meeting"
+    },
+    {
+      "id": "code-legacy-src/lib/calendar-sync.ts",
+      "area": "Code",
+      "severity": "PASS",
+      "message": "src/lib/calendar-sync.ts: Sync writes raw meetings (expected source layer)"
+    },
+    {
+      "id": "code-flag",
+      "area": "Config",
+      "severity": "PASS",
+      "message": "USE_CANONICAL_MEETINGS is ON (default, not set to 0)"
+    },
+    {
+      "id": "db-migration-015",
+      "area": "Database",
+      "severity": "WARN",
+      "message": "Migration 015 not applied — poll cron uses meetings.poll_sent fallback (run 015_occurrence_polls.sql)"
+    },
+    {
+      "id": "db-unlinked",
+      "area": "Database",
+      "severity": "PASS",
+      "message": "All 2348 meetings have occurrence_id"
+    },
+    {
+      "id": "db-fk",
+      "area": "Database",
+      "severity": "PASS",
+      "message": "All occurrence_id FKs resolve"
+    },
+    {
+      "id": "db-team-match",
+      "area": "Database",
+      "severity": "PASS",
+      "message": "Meeting team_id matches occurrence team_id"
+    },
+    {
+      "id": "db-source-count",
+      "area": "Database",
+      "severity": "PASS",
+      "message": "source_count matches linked meetings for all occurrences",
+      "details": []
+    },
+    {
+      "id": "db-orphan-occ",
+      "area": "Database",
+      "severity": "PASS",
+      "message": "No orphan occurrences",
+      "details": []
+    },
+    {
+      "id": "db-merge-sim",
+      "area": "Database",
+      "severity": "PASS",
+      "message": "Re-merge simulation: all canonical keys map to correct occurrences",
+      "details": []
+    },
+    {
+      "id": "db-ical-unity",
+      "area": "Database",
+      "severity": "PASS",
+      "message": "Same ical_uid+start_time always maps to one occurrence",
+      "details": []
+    },
+    {
+      "id": "db-standup-dedupe",
+      "area": "Dedupe",
+      "severity": "PASS",
+      "message": "No standup/planning with 3+ sources split across occurrences",
+      "details": []
+    },
+    {
+      "id": "parity-team-1693c758",
+      "area": "Cross-lead",
+      "severity": "PASS",
+      "message": "2 managers see same 159 meetings / €26483 (last 4 ISO weeks)",
+      "details": {
+        "managers": [
+          {
+            "managerId": "d3a61f65-c39c-4821-a3bd-a014343e0a44",
+            "name": "Jan Kovac",
+            "meetingCount": 159,
+            "totalCost": 26483.280000000002
+          },
+          {
+            "managerId": "cdd1bb89-ac06-4fc4-9204-d210eda7bd57",
+            "name": "Michal Kolodziej",
+            "meetingCount": 159,
+            "totalCost": 26483.280000000002
+          }
+        ],
+        "period": {
+          "from": "2026-06-07T22:00:00.000Z",
+          "to": "2026-07-05T21:59:59.999Z"
+        }
+      }
+    },
+    {
+      "id": "db-polls-occ",
+      "area": "Polls",
+      "severity": "PASS",
+      "message": "All 0 recent poll_responses have occurrence_id",
+      "details": []
+    },
+    {
+      "id": "db-polls-fk",
+      "area": "Polls",
+      "severity": "PASS",
+      "message": "poll_responses.occurrence_id FK valid",
+      "details": []
+    },
+    {
+      "id": "db-cost-null",
+      "area": "Costs",
+      "severity": "PASS",
+      "message": "All active occurrences have team_cost set",
+      "details": []
+    },
+    {
+      "id": "db-cost-zero-suspicious",
+      "area": "Costs",
+      "severity": "PASS",
+      "message": "No suspicious zero-cost occurrences (3+ matched, 15+ min)",
+      "details": []
+    }
+  ],
+  "verdict": "WARN"
+}

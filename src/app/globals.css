@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 237 56% 13%;
+    --background-end: 235 56% 24%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 237 56% 16%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 237 43% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 232 42% 53%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 237 30% 20%;
+    --muted-foreground: 230 20% 65%;
+
+    --accent: 232 42% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 237 30% 30%;
+    --input: 237 30% 25%;
+    --ring: 232 42% 53%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 237 56% 10%;
+    --sidebar-foreground: 230 20% 75%;
+    --sidebar-primary: 232 42% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 237 40% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 237 30% 22%;
+    --sidebar-ring: 232 42% 53%;
+
+    /* KPI gradients */
+    --gradient-purple-blue: linear-gradient(135deg, hsl(270, 60%, 50%), hsl(232, 60%, 55%));
+    --gradient-blue-cyan: linear-gradient(135deg, hsl(232, 60%, 55%), hsl(190, 70%, 50%));
+    --gradient-cyan-green: linear-gradient(135deg, hsl(190, 70%, 50%), hsl(150, 60%, 45%));
+    --gradient-orange-red: linear-gradient(135deg, hsl(30, 90%, 55%), hsl(0, 75%, 55%));
+
+    /* Glass effect */
+    --glass-bg: hsla(0, 0%, 100%, 0.07);
+    --glass-border: hsla(0, 0%, 100%, 0.12);
+    --glass-hover: hsla(0, 0%, 100%, 0.12);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, hsl(237, 56%, 13%), hsl(235, 56%, 24%));
+    color: hsl(0, 0%, 100%);
+    min-height: 100vh;
+  }
+
+  /* Override browser autofill yellow/white background */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px hsl(237, 30%, 25%) inset !important;
+    box-shadow: 0 0 0 1000px hsl(237, 30%, 25%) inset !important;
+    -webkit-text-fill-color: hsl(0, 0%, 100%) !important;
+    caret-color: hsl(0, 0%, 100%);
+    border-color: hsl(237, 30%, 30%) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+@layer base {
+  /* ── Date picker styling (match app: dark blue/purple, no green) ───────── */
+  input[type="date"],
+  input[type="datetime-local"] {
+    color-scheme: dark;
+    accent-color: hsl(232, 42%, 53%);
+    min-height: 2.25rem;
+  }
+
+  /* Calendar icon: blue to match secondary, not green */
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(0.85) sepia(0.4) saturate(4) hue-rotate(190deg);
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    opacity: 0.85;
+    margin-left: 2px;
+  }
+  ::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+  }
+
+  /* Inner date text – app foreground */
+  ::-webkit-datetime-edit {
+    color: hsl(0, 0%, 100%);
+    padding: 0 2px;
+  }
+  ::-webkit-datetime-edit-fields-wrapper { padding: 0; }
+  ::-webkit-datetime-edit-text { color: hsl(230, 20%, 55%); }
+  ::-webkit-datetime-edit-month-field,
+  ::-webkit-datetime-edit-day-field,
+  ::-webkit-datetime-edit-year-field {
+    color: hsl(0, 0%, 100%);
+  }
+  ::-webkit-datetime-edit-month-field:focus,
+  ::-webkit-datetime-edit-day-field:focus,
+  ::-webkit-datetime-edit-year-field:focus {
+    background: hsl(232, 42%, 38%);
+    border-radius: 4px;
+    outline: none;
+    color: hsl(0, 0%, 100%);
+  }
+
+  /* Date input container – glass style when used with .date-input-app */
+  .date-input-app {
+    background: hsla(237, 56%, 13%, 0.9);
+    border: 1px solid hsla(0, 0%, 100%, 0.14);
+    border-radius: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .date-input-app:focus-within {
+    border-color: hsl(232, 42%, 53%);
+    box-shadow: 0 0 0 2px hsla(232, 42%, 53%, 0.25);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-hover:hover {
+    background: var(--glass-hover);
+  }
+
+  .gradient-purple-blue {
+    background: var(--gradient-purple-blue);
+  }
+
+  .gradient-blue-cyan {
+    background: var(--gradient-blue-cyan);
+  }
+
+  .gradient-cyan-green {
+    background: var(--gradient-cyan-green);
+  }
+
+  .gradient-orange-red {
+    background: var(--gradient-orange-red);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(232, 60%, 65%), hsl(190, 70%, 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Horizontal scroll for tables on mobile — visible scrollbar */
+  .table-scroll-mobile {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: hsla(0, 0%, 100%, 0.35) transparent;
+  }
+  .table-scroll-mobile::-webkit-scrollbar {
+    height: 8px;
+  }
+  .table-scroll-mobile::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .table-scroll-mobile::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 100%, 0.25);
+    border-radius: 4px;
+  }
+  .table-scroll-mobile::-webkit-scrollbar-thumb:hover {
+    background: hsla(0, 0%, 100%, 0.4);
+  }
+}

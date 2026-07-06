@@ -1,0 +1,1040 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MeetWise — One-Page Product Sheet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-0: #0b1027;
+        --bg-1: #111a3d;
+        --bg-2: #1a2354;
+        --ink: #eef2ff;
+        --ink-dim: #a7b0d6;
+        --ink-mute: #7d86b0;
+        --brand-1: #4b59d1;
+        --brand-2: #2ab8d9;
+        --brand-3: #38bdf8;
+        --accent: #2ab8d9;
+        --card: rgba(255, 255, 255, 0.04);
+        --card-brd: rgba(255, 255, 255, 0.09);
+        --card-brd-strong: rgba(120, 150, 255, 0.28);
+        --chip: rgba(56, 189, 248, 0.12);
+        --chip-brd: rgba(56, 189, 248, 0.45);
+        --violet: #8b5cf6;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #050820;
+        color: var(--ink);
+        font-family: "Inter", system-ui, sans-serif;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        padding: 5mm 11mm 9mm;
+        background:
+          radial-gradient(
+            1200px 500px at 85% -10%,
+            rgba(56, 189, 248, 0.22),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 500px at -10% 110%,
+            rgba(139, 92, 246, 0.18),
+            transparent 55%
+          ),
+          linear-gradient(180deg, #0a1030 0%, #0a0f2a 50%, #0a0f28 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .grid-lines {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+          );
+        background-size: 34px 34px;
+        mask-image: radial-gradient(
+          ellipse at 50% 30%,
+          #000 40%,
+          transparent 80%
+        );
+        pointer-events: none;
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        border: 1px solid var(--card-brd);
+        border-radius: 20px;
+        padding: 18px 22px 20px;
+        background: linear-gradient(
+          135deg,
+          rgba(79, 123, 255, 0.22),
+          rgba(94, 234, 212, 0.08) 60%,
+          rgba(139, 92, 246, 0.18)
+        );
+        overflow: hidden;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        right: -40px;
+        top: -18px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: radial-gradient(
+          closest-side,
+          rgba(94, 234, 212, 0.16),
+          transparent 70%
+        );
+        filter: blur(4px);
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        left: -80px;
+        bottom: -200px;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: radial-gradient(
+          closest-side,
+          rgba(139, 92, 246, 0.28),
+          transparent 70%
+        );
+        filter: blur(6px);
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1.35fr 1fr;
+        gap: 18px;
+        align-items: center;
+      }
+      .hero-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .hero-viz {
+        position: relative;
+        height: 150px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 12px 14px;
+        overflow: hidden;
+      }
+      .hero-viz::after {
+        content: "";
+        position: absolute;
+        right: -24px;
+        top: -55px;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: radial-gradient(
+          closest-side,
+          rgba(103, 232, 249, 0.45),
+          rgba(42, 184, 217, 0.2) 46%,
+          transparent 74%
+        );
+        filter: blur(2px);
+        pointer-events: none;
+      }
+      .hero-viz .viz-label {
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-viz .viz-label b {
+        color: #67e8f9;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+      }
+      .bars {
+        display: flex;
+        align-items: flex-end;
+        gap: 5px;
+        height: 92px;
+      }
+      .bars .b {
+        flex: 1;
+        border-radius: 3px 3px 0 0;
+        background: linear-gradient(180deg, #67e8f9, #4f7bff);
+        opacity: 0.35;
+        position: relative;
+      }
+      .bars .b.hi {
+        opacity: 1;
+        box-shadow: 0 0 12px rgba(103, 232, 249, 0.5);
+      }
+      .bars .b.mid {
+        opacity: 0.7;
+      }
+      .viz-axis {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 6px;
+        font-size: 8.5px;
+        color: var(--ink-mute);
+        letter-spacing: 0.08em;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: linear-gradient(
+          135deg,
+          var(--brand-1),
+          var(--accent) 60%,
+          var(--brand-2)
+        );
+        display: grid;
+        place-items: center;
+        color: #0b1027;
+        font-weight: 800;
+        font-size: 22px;
+        box-shadow:
+          0 8px 24px -8px rgba(56, 189, 248, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+      .brand-name {
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        font-size: 20px;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        background: var(--chip);
+        border: 1px solid var(--chip-brd);
+        color: #83dff5;
+      }
+      .pill .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 10px var(--accent);
+      }
+      .kicker {
+        margin-top: 14px;
+        font-size: 10.5px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+      }
+      h1 {
+        margin: 6px 0 8px;
+        font-size: 34px;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        font-weight: 800;
+        background: linear-gradient(
+          90deg,
+          #ffffff 0%,
+          #c7d2fe 60%,
+          #67e8f9 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        max-width: 680px;
+      }
+      .lede {
+        color: var(--ink-dim);
+        font-size: 12.5px;
+        line-height: 1.55;
+        max-width: 640px;
+      }
+
+      /* BANDS */
+      .band {
+        margin-top: 12px;
+      }
+      .band-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .band-2 {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 12px;
+      }
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 4px 2px 2px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: #fff;
+      }
+      .section-title .bar {
+        width: 4px;
+        height: 16px;
+        border-radius: 2px;
+        background: linear-gradient(180deg, var(--accent), #8b5cf6);
+      }
+
+      .card {
+        position: relative;
+        border: 1px solid var(--card-brd);
+        border-radius: 14px;
+        padding: 12px 13px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.045),
+          rgba(255, 255, 255, 0.015)
+        );
+        backdrop-filter: blur(4px);
+      }
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 12.5px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card.feat {
+        padding: 14px;
+      }
+      .card.feat h3 {
+        font-size: 13px;
+      }
+      .num {
+        width: 22px;
+        height: 22px;
+        border-radius: 7px;
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        font-weight: 700;
+        color: #0b1027;
+        background: linear-gradient(135deg, #67e8f9, var(--brand-1));
+        box-shadow: 0 4px 10px -4px rgba(75, 89, 209, 0.7);
+      }
+      .icn {
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(
+          135deg,
+          rgba(56, 189, 248, 0.28),
+          rgba(139, 92, 246, 0.28)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #e0f2fe;
+        flex-shrink: 0;
+      }
+      .icn svg {
+        width: 14px;
+        height: 14px;
+      }
+      ul.clean {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      ul.clean li {
+        position: relative;
+        padding-left: 15px;
+        font-size: 11.5px;
+        line-height: 1.45;
+        color: var(--ink-dim);
+      }
+      ul.clean li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 7px;
+        width: 6px;
+        height: 6px;
+        border-radius: 2px;
+        background: linear-gradient(135deg, var(--accent), #8b5cf6);
+        transform: rotate(45deg);
+      }
+      ul.clean li b {
+        color: #eef2ff;
+        font-weight: 600;
+      }
+
+      /* Numbered flow */
+      .flow {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .flow .step {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 8px 10px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .flow .step .n {
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        display: grid;
+        place-items: center;
+        font-size: 11px;
+        font-weight: 700;
+        background: rgba(56, 189, 248, 0.15);
+        color: #7dd3fc;
+        border: 1px solid rgba(56, 189, 248, 0.35);
+        flex-shrink: 0;
+      }
+      .flow .step .t {
+        font-size: 11.5px;
+        color: var(--ink);
+        line-height: 1.4;
+      }
+
+      /* Highlight blocks */
+      .highlight {
+        position: relative;
+        border-radius: 14px;
+        padding: 12px 14px 12px 16px;
+        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          rgba(34, 211, 238, 0.1),
+          rgba(139, 92, 246, 0.1)
+        );
+        border: 1px solid rgba(120, 150, 255, 0.28);
+      }
+      .highlight::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--accent), #8b5cf6);
+      }
+      .highlight .lbl {
+        font-size: 10.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #67e8f9;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .highlight p {
+        margin: 0;
+        font-size: 11.5px;
+        color: var(--ink);
+        line-height: 1.5;
+      }
+      .highlight p b {
+        color: #fff;
+      }
+
+      .cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        border-radius: 16px;
+        padding: 18px 22px;
+        margin-top: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: linear-gradient(
+          135deg,
+          var(--brand-1) 0%,
+          var(--accent) 60%,
+          var(--brand-2) 100%
+        );
+        color: #0b1027;
+        box-shadow:
+          0 10px 30px -12px rgba(75, 89, 209, 0.65),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+      .cta::after {
+        content: "";
+        position: absolute;
+        right: -40px;
+        top: -40px;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: radial-gradient(
+          closest-side,
+          rgba(255, 255, 255, 0.28),
+          transparent 70%
+        );
+      }
+      .cta .t {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .cta .s {
+        font-size: 11.5px;
+        color: #0b1027cc;
+        margin-top: 3px;
+      }
+      .cta .arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: #0b1027;
+        color: #7dd3fc;
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-meta {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-stat {
+        text-align: right;
+      }
+      .cta-stat .n {
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+      .cta-stat .l {
+        font-size: 9.5px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #0b1027aa;
+        margin-top: 3px;
+      }
+      .cta-divider {
+        width: 1px;
+        height: 34px;
+        background: #0b102733;
+      }
+
+      .tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 6px;
+      }
+      .tag {
+        font-size: 10.5px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--ink-dim);
+      }
+      .tag.pro {
+        background: rgba(139, 92, 246, 0.15);
+        border-color: rgba(139, 92, 246, 0.4);
+        color: #c4b5fd;
+      }
+      .tag.free {
+        background: rgba(94, 234, 212, 0.12);
+        border-color: rgba(94, 234, 212, 0.35);
+        color: #5eead4;
+      }
+
+      footer {
+        margin-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        font-size: 10px;
+        color: var(--ink-mute);
+        letter-spacing: 0.02em;
+      }
+      footer .line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.15),
+          transparent
+        );
+      }
+
+      @media print {
+        html,
+        body {
+          background: #0a0f28;
+          margin: 0;
+          padding: 0;
+          font-size: 102%;
+        }
+        .page {
+          margin: 0;
+          box-shadow: none;
+          width: 100%;
+          min-height: 285mm;
+          padding: 8mm 8mm 6mm;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .hero {
+          padding: 15px 17px;
+        }
+
+        .hero-inner {
+          gap: 14px;
+        }
+
+        .hero-viz {
+          height: 138px;
+          padding: 10px 12px;
+        }
+
+        .bars {
+          height: 84px;
+          gap: 4px;
+        }
+
+        .kicker {
+          margin-top: 8px;
+          font-size: 10px;
+        }
+
+        h1 {
+          font-size: 31px;
+          margin: 3px 0 6px;
+          max-width: 620px;
+        }
+
+        .lede {
+          font-size: 11px;
+          line-height: 1.38;
+        }
+
+        .band {
+          margin-top: 11px;
+        }
+
+        .band-3,
+        .band-2 {
+          gap: 12px;
+        }
+
+        .section-title {
+          margin: 1px 1px 1px;
+          font-size: 13px;
+        }
+
+        .card,
+        .card.feat {
+          padding: 11px 12px;
+          border-radius: 14px;
+        }
+
+        .card h3,
+        .card.feat h3 {
+          margin: 0 0 6px;
+          font-size: 12.5px;
+        }
+
+        ul.clean {
+          gap: 4px;
+        }
+
+        ul.clean li,
+        .flow .step .t,
+        .highlight p {
+          font-size: 10.8px;
+          line-height: 1.32;
+        }
+
+        ul.clean li {
+          padding-left: 12px;
+        }
+
+        ul.clean li::before {
+          top: 6px;
+          width: 5px;
+          height: 5px;
+        }
+
+        .flow {
+          gap: 5px;
+        }
+
+        .flow .step {
+          padding: 7px 8px;
+        }
+
+        .flow .step .n {
+          width: 20px;
+          height: 20px;
+          font-size: 10.5px;
+        }
+
+        .highlight {
+          padding: 11px 12px 10px 13px;
+        }
+
+        .highlight .lbl {
+          font-size: 9.8px;
+          margin-bottom: 3px;
+        }
+
+        .tags {
+          margin-top: 5px;
+          gap: 5px;
+        }
+
+        .tag {
+          font-size: 10px;
+          padding: 3px 8px;
+        }
+
+        .cta {
+          margin-top: auto;
+          padding: 12px 15px;
+          gap: 14px;
+          width: 100%;
+          margin-right: -1px;
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+
+        .cta .t {
+          font-size: 13.5px;
+        }
+
+        .cta .s {
+          font-size: 10.2px;
+        }
+
+        .cta .arrow {
+          width: 34px;
+          height: 34px;
+          border-radius: 10px;
+        }
+
+        .cta-stat .n {
+          font-size: 16px;
+        }
+
+        .cta-stat .l {
+          font-size: 8.7px;
+        }
+
+        .cta-divider {
+          height: 28px;
+        }
+
+        footer {
+          margin-top: 6px;
+        }
+
+        @page {
+          size: A4;
+          /* margin: 6mm; */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="grid-lines"></div>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-top">
+              <div class="brand">
+                <div class="logo">M</div>
+                <div class="brand-name">MeetWise</div>
+              </div>
+              <span class="pill"><span class="dot"></span>AI-Powered</span>
+            </div>
+            <h1>Turn Meeting Time into Measurable Business Value</h1>
+            <p class="lede">
+              MeetWise helps teams understand the real cost of meetings and
+              improve meeting quality with clear analytics and AI-supported
+              recommendations.
+            </p>
+          </div>
+          <div class="hero-viz">
+            <div class="viz-label">
+              <span>Weekly meeting hours</span><b>AI ANALYZED</b>
+            </div>
+            <div class="bars">
+              <div class="b" style="height: 38%"></div>
+              <div class="b mid" style="height: 55%"></div>
+              <div class="b" style="height: 42%"></div>
+              <div class="b hi" style="height: 78%"></div>
+              <div class="b mid" style="height: 62%"></div>
+              <div class="b hi" style="height: 88%"></div>
+              <div class="b mid" style="height: 70%"></div>
+              <div class="b" style="height: 48%"></div>
+              <div class="b mid" style="height: 58%"></div>
+              <div class="b hi" style="height: 82%"></div>
+              <div class="b mid" style="height: 65%"></div>
+              <div class="b" style="height: 45%"></div>
+            </div>
+            <div class="viz-axis">
+              <span>W1</span><span>W3</span><span>W6</span><span>W9</span
+              ><span>W12</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAND 1: What MeetWise Does — 3 columns of 4 features (first 3) -->
+      <div class="band">
+        <div class="section-title">
+          <span class="bar"></span>What MeetWise Does
+        </div>
+        <div class="band-3">
+          <div class="card feat">
+            <h3><span class="num">1</span> Connects to Outlook</h3>
+            <ul class="clean">
+              <li>Secure <b>Microsoft OAuth</b> connection</li>
+              <li>Imports meeting metadata for analysis</li>
+            </ul>
+          </div>
+          <div class="card feat">
+            <h3><span class="num">2</span> Calculates Cost</h3>
+            <ul class="clean">
+              <li>Uses duration, participants, hourly rates</li>
+              <li>Trends by week, month, year, custom range</li>
+            </ul>
+          </div>
+          <div class="card feat">
+            <h3><span class="num">3</span> Delivers AI Insights</h3>
+            <ul class="clean">
+              <li>Highlights low-efficiency patterns</li>
+              <li>Prioritizes recs (<b>High / Med / Low</b>)</li>
+              <li>Shows estimated monthly savings</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- BAND 2: Team Action + Why AI + Team Lead Value (3-col mixed) -->
+      <div class="band band-3">
+        <div class="card feat">
+          <h3><span class="num">4</span> Supports Team Action</h3>
+          <ul class="clean">
+            <li>Clear view of total team meeting cost</li>
+            <li>Manage load, priorities, optimization</li>
+            <li>Team-level visibility and alignment</li>
+          </ul>
+        </div>
+        <div class="highlight">
+          <div class="lbl">Why AI Matters</div>
+          <p>
+            MeetWise is <b>not just reporting</b>. AI detects patterns, ranks
+            opportunities, and helps Team Leads decide where to act first.
+          </p>
+        </div>
+        <div
+          class="highlight"
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(139, 92, 246, 0.14),
+              rgba(79, 123, 255, 0.1)
+            );
+            border-color: rgba(139, 92, 246, 0.32);
+          "
+        >
+          <div class="lbl" style="color: #c4b5fd">Team Lead Value</div>
+          <p>
+            Monitor team meeting spend, identify waste patterns, and drive
+            measurable optimization with shared, data-backed visibility.
+          </p>
+        </div>
+      </div>
+
+      <!-- BAND 3: Who / Benefits (2-col) -->
+      <div class="band band-2">
+        <div class="stack">
+          <div class="section-title">
+            <span class="bar"></span>Who It Is For
+          </div>
+          <div class="card">
+            <ul class="clean">
+              <li>Team leads and managers</li>
+              <li>Operations and department leaders</li>
+              <li>Organizations using <b>Microsoft 365 / Outlook</b></li>
+            </ul>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="section-title"><span class="bar"></span>Key Benefits</div>
+          <div class="card">
+            <ul class="clean">
+              <li>Better cost visibility across meetings</li>
+              <li>Faster decisions on what to keep, shorten, remove</li>
+              <li>Reduced low-value meeting time</li>
+              <li>Practical recommendations teams apply quickly</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- BAND 4: Flow + Security (2-col) -->
+      <div class="band band-2">
+        <div class="stack">
+          <div class="section-title">
+            <span class="bar"></span>Typical User Flow
+          </div>
+          <div class="flow">
+            <div class="step">
+              <span class="n">1</span
+              ><span class="t">Sign up and create or join a team</span>
+            </div>
+            <div class="step">
+              <span class="n">2</span
+              ><span class="t">Connect Outlook Calendar</span>
+            </div>
+            <div class="step">
+              <span class="n">3</span
+              ><span class="t">Sync and review meeting cost baseline</span>
+            </div>
+            <div class="step">
+              <span class="n">4</span
+              ><span class="t">Open AI Insights and prioritize changes</span>
+            </div>
+            <div class="step">
+              <span class="n">5</span
+              ><span class="t">Track improvement over time</span>
+            </div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="section-title">
+            <span class="bar"></span>Security &amp; Trust
+          </div>
+          <div class="card">
+            <ul class="clean">
+              <li>Secure authentication and access controls</li>
+              <li>Encrypted handling of sensitive integration tokens</li>
+              <li>Transparent Privacy Policy and Terms of Use</li>
+              <li>Explicit legal consent capture at registration</li>
+            </ul>
+            <div class="tags">
+              <span class="tag free">Free · Core visibility</span>
+              <span class="tag pro">Pro · Advanced AI insights</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FULL-WIDTH CTA -->
+      <div class="cta">
+        <div>
+          <div class="t">Start from your current calendar reality.</div>
+          <div class="s">
+            See what meetings cost, where value drops, and where to act first.
+          </div>
+        </div>
+        <div class="cta-meta">
+          <div class="cta-stat">
+            <div class="n">High</div>
+            <div class="l">Savings potential</div>
+          </div>
+          <div class="cta-divider"></div>
+          <div class="cta-stat">
+            <div class="n">Faster</div>
+            <div class="l">Decision cycles</div>
+          </div>
+          <div class="arrow">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              width="20"
+              height="20"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!--  <footer>
+        <span>MeetWise · One-Page Product Sheet</span>
+        <span class="line"></span>
+      </footer> -->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MeetWise One-Page Product Sheet</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --bg-1: hsl(237 56% 13%);
+        --bg-2: hsl(236 50% 17%);
+        --bg-3: hsl(235 56% 21%);
+        --text: hsl(0 0% 100%);
+        --muted: hsl(230 20% 76%);
+        --soft: hsl(230 20% 65%);
+        --line: hsla(0, 0%, 100%, 0.14);
+        --glass: hsla(0, 0%, 100%, 0.07);
+        --glass-strong: hsla(0, 0%, 100%, 0.1);
+        --accent: hsl(232 60% 65%);
+        --accent-2: hsl(190 70% 60%);
+        --ai-glow: hsla(190, 85%, 62%, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at 20% -10%,
+            rgba(56, 189, 248, 0.2),
+            transparent 48%
+          ),
+          radial-gradient(
+            circle at 90% 10%,
+            rgba(99, 102, 241, 0.2),
+            transparent 40%
+          ),
+          linear-gradient(
+            180deg,
+            var(--bg-1) 0%,
+            var(--bg-2) 42%,
+            var(--bg-3) 100%
+          );
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 28px;
+      }
+
+      .sheet {
+        position: relative;
+        max-width: 1100px;
+        margin: 0 auto;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: linear-gradient(
+          180deg,
+          hsla(0, 0%, 100%, 0.06),
+          hsla(0, 0%, 100%, 0.03)
+        );
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        overflow: hidden;
+      }
+
+      .sheet::before {
+        content: "";
+        position: absolute;
+        top: -120px;
+        right: -100px;
+        width: 320px;
+        height: 320px;
+        border-radius: 999px;
+        background: radial-gradient(circle, var(--ai-glow), transparent 62%);
+        pointer-events: none;
+      }
+
+      .top {
+        position: relative;
+        padding: 30px 34px 24px;
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(
+          120deg,
+          hsla(232, 60%, 62%, 0.18),
+          hsla(190, 70%, 60%, 0.1)
+        );
+      }
+
+      .headline-row {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .ai-badge {
+        flex-shrink: 0;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 12px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: hsl(187 95% 78%);
+        background: linear-gradient(
+          135deg,
+          hsla(190, 70%, 60%, 0.2),
+          hsla(232, 60%, 62%, 0.18)
+        );
+        box-shadow: 0 0 0 1px hsla(190, 70%, 60%, 0.16) inset;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .logo {
+        width: 34px;
+        height: 34px;
+        border-radius: 11px;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        background: linear-gradient(135deg, hsl(232 60% 55%), hsl(190 70% 50%));
+      }
+
+      .kicker {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 8px 0 10px;
+        font-size: 34px;
+        line-height: 1.15;
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+        max-width: 840px;
+        line-height: 1.5;
+      }
+
+      .content {
+        padding: 22px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--glass);
+        padding: 16px;
+        height: 100%;
+      }
+
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 18px;
+      }
+
+      .card h3 {
+        margin: 12px 0 8px;
+        font-size: 15px;
+      }
+
+      .muted {
+        color: var(--soft);
+      }
+
+      ul,
+      ol {
+        margin: 8px 0 0;
+        padding-left: 18px;
+      }
+
+      li {
+        margin: 6px 0;
+        line-height: 1.35;
+      }
+
+      .pillrow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .pill {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 5px 10px;
+        font-size: 12px;
+        color: var(--muted);
+        background: var(--glass-strong);
+      }
+
+      .spotlight {
+        border-left: 4px solid var(--accent);
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: hsla(232, 60%, 62%, 0.1);
+        margin-top: 10px;
+      }
+
+      .grid-two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .feature {
+        border: 1px solid hsla(0, 0%, 100%, 0.1);
+        border-radius: 12px;
+        padding: 10px;
+        background: hsla(0, 0%, 100%, 0.03);
+      }
+
+      .feature.ai {
+        border-color: hsla(190, 70%, 60%, 0.35);
+        background: linear-gradient(
+          135deg,
+          hsla(190, 70%, 60%, 0.11),
+          hsla(232, 60%, 62%, 0.1)
+        );
+      }
+
+      .ai-panel {
+        margin-top: 12px;
+        border: 1px solid hsla(190, 70%, 60%, 0.4);
+        border-radius: 12px;
+        padding: 11px 12px;
+        background: linear-gradient(
+          135deg,
+          hsla(190, 70%, 60%, 0.16),
+          hsla(232, 60%, 62%, 0.12)
+        );
+      }
+
+      .ai-panel-title {
+        margin: 0 0 6px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: hsl(187 95% 80%);
+      }
+
+      .ai-panel p {
+        margin: 0;
+        line-height: 1.35;
+      }
+
+      .cta {
+        margin-top: 12px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 12px;
+        background: linear-gradient(
+          135deg,
+          hsla(232, 60%, 62%, 0.2),
+          hsla(190, 70%, 60%, 0.14)
+        );
+      }
+
+      .cta strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .footer {
+        padding: 0 34px 20px;
+        color: var(--soft);
+        font-size: 12px;
+      }
+
+      @media (max-width: 900px) {
+        body {
+          padding: 14px;
+        }
+
+        .top {
+          padding: 24px 20px 18px;
+        }
+
+        h1 {
+          font-size: 27px;
+        }
+
+        .content {
+          grid-template-columns: 1fr;
+          padding: 14px;
+        }
+
+        .grid-two {
+          grid-template-columns: 1fr;
+        }
+
+        .footer {
+          padding: 0 20px 14px;
+        }
+
+        .headline-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A4 portrait;
+          margin: 10mm;
+        }
+
+        body {
+          padding: 0;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .sheet {
+          max-width: none;
+          border-radius: 0;
+          border: 1px solid #d8def0;
+          background: white;
+          color: #0f172a;
+        }
+
+        .top {
+          background: linear-gradient(
+            120deg,
+            rgba(99, 102, 241, 0.2),
+            rgba(56, 189, 248, 0.16)
+          );
+          border-bottom: 1px solid #d8def0;
+        }
+
+        .card {
+          background: #f8fbff;
+          border-color: #d8def0;
+          break-inside: avoid;
+        }
+
+        .pill {
+          color: #334155;
+          border-color: #cbd5e1;
+          background: #f1f5f9;
+        }
+
+        .spotlight {
+          background: #e8edff;
+          border-left-color: #6366f1;
+        }
+
+        .feature {
+          background: #f8fbff;
+          border-color: #d8def0;
+        }
+
+        .feature.ai,
+        .ai-panel {
+          background: #eaf5ff;
+          border-color: #9bc8ff;
+        }
+
+        .ai-badge,
+        .ai-panel-title {
+          color: #0f3a6b;
+        }
+
+        .muted,
+        .footer,
+        .lead {
+          color: #334155;
+        }
+
+        .cta {
+          background: #eef6ff;
+          border-color: #cbd5e1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="sheet">
+      <header class="top">
+        <div class="brand">
+          <div class="logo">M</div>
+          <strong>MeetWise</strong>
+        </div>
+        <p class="kicker">One-Page Product Sheet</p>
+        <div class="headline-row">
+          <h1>Turn Meeting Time into Measurable Business Value</h1>
+          <span class="ai-badge">AI-Powered</span>
+        </div>
+        <p class="lead">
+          MeetWise helps teams understand the real cost of meetings and improve
+          meeting quality with clear analytics and AI-supported recommendations.
+        </p>
+      </header>
+
+      <section class="content">
+        <div class="card">
+          <h2>What MeetWise Does</h2>
+          <div class="grid-two">
+            <div class="feature">
+              <h3>1) Connects to Outlook Calendar</h3>
+              <ul>
+                <li>Secure Microsoft OAuth connection</li>
+                <li>Imports meeting metadata for analysis</li>
+              </ul>
+            </div>
+            <div class="feature">
+              <h3>2) Calculates Meeting Cost</h3>
+              <ul>
+                <li>Uses duration, participants, and team hourly rates</li>
+                <li>Tracks trends by week, month, year, and custom range</li>
+              </ul>
+            </div>
+            <div class="feature ai">
+              <h3>3) Delivers AI Insights</h3>
+              <ul>
+                <li>Highlights low-efficiency meeting patterns</li>
+                <li>Prioritizes recommendations (High/Medium/Low)</li>
+                <li>Shows estimated monthly savings opportunities</li>
+              </ul>
+            </div>
+            <div class="feature">
+              <h3>4) Supports Team Action</h3>
+              <ul>
+                <li>
+                  Gives Team Leads a clear view of total team meeting cost
+                </li>
+                <li>
+                  Helps Team Leads manage load, priorities, and optimization
+                  actions
+                </li>
+                <li>Supports team-level visibility and alignment</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ai-panel">
+            <p class="ai-panel-title">Why AI Matters</p>
+            <p>
+              MeetWise is not just reporting. It uses AI to detect patterns,
+              rank opportunities, and help Team Leads decide where to act first
+              for maximum meeting impact.
+            </p>
+          </div>
+
+          <div class="spotlight">
+            <strong>Team Lead Value:</strong>
+            Team Leads can monitor team meeting spend, identify waste patterns,
+            and drive measurable optimization decisions with shared, data-backed
+            visibility.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Who It Is For</h2>
+          <ul>
+            <li>Team leads and managers</li>
+            <li>Operations and department leaders</li>
+            <li>Organizations using Microsoft 365 / Outlook</li>
+          </ul>
+
+          <h2 style="margin-top: 16px">Key Benefits</h2>
+          <ul>
+            <li>Better cost visibility across meetings</li>
+            <li>Faster decisions on what to keep, shorten, or remove</li>
+            <li>Reduced low-value meeting time</li>
+            <li>Practical recommendations teams can apply quickly</li>
+          </ul>
+
+          <h2 style="margin-top: 16px">Typical User Flow</h2>
+          <ol>
+            <li>Sign up and create or join a team</li>
+            <li>Connect Outlook Calendar</li>
+            <li>Sync and review meeting cost baseline</li>
+            <li>Open AI Insights and prioritize changes</li>
+            <li>Track improvement over time</li>
+          </ol>
+
+          <h2 style="margin-top: 16px">Security and Trust</h2>
+          <ul>
+            <li>Secure authentication and access controls</li>
+            <li>Encrypted handling of sensitive integration tokens</li>
+            <li>Transparent Privacy Policy and Terms of Use</li>
+            <li>Explicit legal consent capture during registration</li>
+          </ul>
+
+          <div class="pillrow">
+            <span class="pill">Free: Core visibility</span>
+            <span class="pill">Pro: Advanced AI insights</span>
+          </div>
+
+          <div class="cta">
+            <strong>Start from your current calendar reality.</strong>
+            See what meetings cost, where value drops, and where to act first.
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">
+        Document type: end-user informational product sheet | Editing tip: open
+        this file in a browser and use Print to PDF.
+      </div>
+    </main>
+  </body>
+</html>
